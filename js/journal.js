@@ -1,7 +1,14 @@
 // ===== 日记页面主逻辑 =====
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchEngine = new JournalSearch(journalPosts);
+let searchEngine = null;
+let allPosts = [];
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // 加载所有日记
+    await loadAllPosts();
+    
+    // 初始化搜索
+    searchEngine = new JournalSearch(allPosts);
     
     // 初始化页面
     initStats();
@@ -10,9 +17,30 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
 });
 
+// 从 posts 目录加载所有 Markdown 文件
+async function loadAllPosts() {
+    try {
+        // 读取 posts 目录的索引文件
+        const response = await fetch('../posts/posts-index.json');
+        const postsIndex = await response.json();
+        
+        allPosts = postsIndex.map(post => ({
+            id: post.id,
+            title: post.title,
+            date: post.date,
+            tags: post.tags,
+            excerpt: post.excerpt,
+            content: post.content
+        }));
+    } catch (error) {
+        console.error('加载日记失败:', error);
+        // 如果加载失败，使用默认空数组
+        allPosts = [];
+    }
+}
+
 // 初始化统计信息
 function initStats() {
-    const searchEngine = new JournalSearch(journalPosts);
     const stats = searchEngine.getStats();
     
     animateNumber('total-posts', stats.totalPosts);
@@ -71,7 +99,7 @@ function createPostCard(post) {
     ).join('');
     
     return `
-        <a href="post.html?id=${post.id}" class="post-card">
+        <a href="../posts/${post.id}.html" class="post-card">
             <div class="post-card-header">
                 <div class="post-card-date">
                     📅 ${formatDate(post.date)}
@@ -107,7 +135,7 @@ function setupSearch() {
     // 实时搜索（输入时）
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value;
-        const filtered = searchEngine.search(query);
+        searchEngine.search(query);
         renderPosts(searchEngine.sortByDate());
     });
     
@@ -115,7 +143,7 @@ function setupSearch() {
     if (searchBtn) {
         searchBtn.addEventListener('click', () => {
             const query = searchInput.value;
-            const filtered = searchEngine.search(query);
+            searchEngine.search(query);
             renderPosts(searchEngine.sortByDate());
         });
     }
@@ -124,7 +152,7 @@ function setupSearch() {
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             const query = searchInput.value;
-            const filtered = searchEngine.search(query);
+            searchEngine.search(query);
             renderPosts(searchEngine.sortByDate());
         }
     });
@@ -143,7 +171,7 @@ function setupFilters() {
             
             // 筛选
             const filter = btn.dataset.filter;
-            const filtered = searchEngine.filterByTag(filter);
+            searchEngine.filterByTag(filter);
             renderPosts(searchEngine.sortByDate());
         });
     });

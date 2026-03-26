@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间线 - 我的空间</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .timeline-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 2.5rem;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .timeline-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html">🏠 我的空间</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="journal/index.html">日记</a></li>
+                <li><a href="timeline.html" class="active">时间线</a></li>
+                <li><a href="about.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="timeline-section">
+            <h1 class="page-title">📅 成长时间线</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">📅 2026 年 03 月 25 日</div>
+                    <h3 class="timeline-title">开始写日记的第一天</h3>
+                    <p class="timeline-description">
+                        决定开始记录自己的生活，用 GitHub Pages 搭建了这个个人网站。希望这里能成为思考的港湾，记录生活中的点滴思考与感悟。
+                    </p>
+                    <span class="timeline-tag">生活</span>
+                    <span class="timeline-tag">思考</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📅 2026 年 03 月 20 日</div>
+                    <h3 class="timeline-title">《原子习惯》读书笔记</h3>
+                    <p class="timeline-description">
+                        读了《原子习惯》这本书，对习惯养成有了全新的认识。微小的改变，长期的坚持，会带来惊人的复利效应。
+                    </p>
+                    <span class="timeline-tag">思考</span>
+                    <span class="timeline-tag">生活</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📅 2026 年 03 月 15 日</div>
+                    <h3 class="timeline-title">周末徒步：城市边缘的自然</h3>
+                    <p class="timeline-description">
+                        去城郊的山里徒步，发现原来离城市不远的地方就有这么美的自然风景。远离屏幕，呼吸新鲜空气，整个人都放松了。
+                    </p>
+                    <span class="timeline-tag">旅行</span>
+                    <span class="timeline-tag">生活</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 我的个人空间。Built with ❤️ on GitHub Pages</p>
+            <div class="social-links">
+                <a href="https://github.com/kunjar-git" target="_blank">GitHub</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

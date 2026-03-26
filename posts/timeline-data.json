@@ -1,22 +1,22 @@
 {
   "timeline": [
     {
-      "id": "2023-06-24-not-a-medicine-god",
+      "id": "2026-03-26-not-a-medicine-god",
       "date": "2026-03-26",
-      "dateDisplay": "2026 年 03 月 26 日 星期四",
+      "dateDisplay": "2026 年 03 月 26 日",
       "title": "我不是药神",
       "description": "5 年后重温《我不是药神》，从只记得\"god bless you\"到思考人性、情法、成长，时间真的会改变一个人的视角。",
       "tags": ["thoughts"],
-      "link": "posts/2023-06-24-not-a-medicine-god.html"
+      "link": "posts/2026-03-26-not-a-medicine-god.html"
     },
     {
-      "id": "2026-03-15-weekend-hike",
-      "date": "2026-03-15",
-      "dateDisplay": "2026 年 03 月 15 日",
-      "title": "周末徒步：城市边缘的自然",
-      "description": "去城郊的山里徒步，发现原来离城市不远的地方就有这么美的自然风景。远离屏幕，呼吸新鲜空气，整个人都放松了。",
-      "tags": ["travel", "life"],
-      "link": "posts/2026-03-15-weekend-hike.html"
+      "id": "2026-03-25-first-post",
+      "date": "2026-03-25",
+      "dateDisplay": "2026 年 03 月 25 日",
+      "title": "开始写日记的第一天",
+      "description": "决定开始记录自己的生活，用 GitHub Pages 搭建了这个个人网站。希望这里能成为思考的港湾，记录生活中的点滴思考与感悟。",
+      "tags": ["life", "thoughts"],
+      "link": "posts/2026-03-25-first-post.html"
     },
     {
       "id": "2026-03-20-book-review",
@@ -28,13 +28,13 @@
       "link": "posts/2026-03-20-book-review.html"
     },
     {
-      "id": "2026-03-25-first-post",
-      "date": "2026-03-25",
-      "dateDisplay": "2026 年 03 月 25 日",
-      "title": "开始写日记的第一天",
-      "description": "决定开始记录自己的生活，用 GitHub Pages 搭建了这个个人网站。希望这里能成为思考的港湾，记录生活中的点滴思考与感悟。",
-      "tags": ["life", "thoughts"],
-      "link": "posts/2026-03-25-first-post.html"
+      "id": "2026-03-15-weekend-hike",
+      "date": "2026-03-15",
+      "dateDisplay": "2026 年 03 月 15 日",
+      "title": "周末徒步：城市边缘的自然",
+      "description": "去城郊的山里徒步，发现原来离城市不远的地方就有这么美的自然风景。远离屏幕，呼吸新鲜空气，整个人都放松了。",
+      "tags": ["travel", "life"],
+      "link": "posts/2026-03-15-weekend-hike.html"
     }
   ]
 }

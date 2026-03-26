@@ -8,9 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         .timeline-section {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
         }
         
         .page-title {
@@ -21,16 +24,72 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            grid-column: 1 / -1;
         }
         
-        /* 年份分组 */
+        /* 侧边年份导航 */
+        .year-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: var(--card-bg);
+            padding: 1.5rem 1rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        
+        .year-sidebar-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .year-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .year-nav-btn {
+            padding: 0.6rem 1rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+        
+        .year-nav-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .year-nav-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 时间线内容 */
+        .timeline-content {
+            min-width: 0;
+        }
+        
         .year-group {
             margin-bottom: 4rem;
+            scroll-margin-top: 120px;
         }
         
         .year-header {
-            position: sticky;
-            top: 160px; /* 在年份导航下方 */
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 1rem 2rem;
@@ -38,12 +97,15 @@
             margin-bottom: 2rem;
             font-size: 1.75rem;
             font-weight: 700;
-            box-shadow: var(--shadow-lg);
-            z-index: 40;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
         
         .year-header::before {
-            content: '📅 ';
+            content: '📅';
+            font-size: 1.5rem;
         }
         
         .timeline {
@@ -136,45 +198,33 @@
             font-size: 1.125rem;
         }
         
-        /* 年份导航 */
-        .year-nav {
-            position: sticky;
-            top: 90px; /* 在顶部导航栏下方 */
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2rem;
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            z-index: 50;
-            border: 1px solid var(--border-color);
-        }
-        
-        .year-nav-btn {
-            padding: 0.4rem 1rem;
-            border: 2px solid var(--border-color);
-            background: var(--card-bg);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: var(--text-secondary);
-            white-space: nowrap;
-        }
-        
-        .year-nav-btn:hover {
-            border-color: var(--primary-light);
-            color: var(--primary-color);
-        }
-        
-        .year-nav-btn.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .timeline-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .year-sidebar {
+                position: relative;
+                top: 0;
+                display: flex;
+                overflow-x: auto;
+                padding: 1rem;
+            }
+            
+            .year-sidebar-title {
+                display: none;
+            }
+            
+            .year-nav {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+            
+            .year-nav-btn {
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
@@ -197,12 +247,17 @@
         <section class="timeline-section">
             <h1 class="page-title">📅 成长时间线</h1>
             
-            <!-- 年份导航 -->
-            <div class="year-nav" id="year-nav"></div>
+            <!-- 侧边年份导航 -->
+            <aside class="year-sidebar">
+                <div class="year-sidebar-title">年份</div>
+                <div class="year-nav" id="year-nav"></div>
+            </aside>
             
             <!-- 时间线内容 -->
-            <div id="timeline-container">
-                <div class="loading">⏳ 加载中...</div>
+            <div class="timeline-content">
+                <div id="timeline-container">
+                    <div class="loading">⏳ 加载中...</div>
+                </div>
             </div>
         </section>
     </main>

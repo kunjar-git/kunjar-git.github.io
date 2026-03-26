@@ -1,4 +1,4 @@
-// ===== 时间线页面逻辑（按年份分组）=====
+// ===== 时间线页面逻辑（侧边栏布局）=====
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadTimeline();
@@ -106,7 +106,7 @@ function createTimelineItem(item) {
 function scrollToYear(year) {
     const element = document.getElementById(`year-${year}`);
     if (element) {
-        const offset = 100;
+        const offset = 120;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         

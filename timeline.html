@@ -23,6 +23,29 @@
             background-clip: text;
         }
         
+        /* 年份分组 */
+        .year-group {
+            margin-bottom: 4rem;
+        }
+        
+        .year-header {
+            position: sticky;
+            top: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
+        }
+        
+        .year-header::before {
+            content: '📅 ';
+        }
+        
         .timeline {
             position: relative;
             padding-left: 3rem;
@@ -41,7 +64,7 @@
         
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--radius-lg);
@@ -112,6 +135,44 @@
             color: var(--text-secondary);
             font-size: 1.125rem;
         }
+        
+        /* 年份导航 */
+        .year-nav {
+            position: sticky;
+            top: 20px;
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            z-index: 100;
+        }
+        
+        .year-nav-btn {
+            padding: 0.5rem 1.25rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+        
+        .year-nav-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .year-nav-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -132,7 +193,12 @@
     <main class="container">
         <section class="timeline-section">
             <h1 class="page-title">📅 成长时间线</h1>
-            <div class="timeline" id="timeline-container">
+            
+            <!-- 年份导航 -->
+            <div class="year-nav" id="year-nav"></div>
+            
+            <!-- 时间线内容 -->
+            <div id="timeline-container">
                 <div class="loading">⏳ 加载中...</div>
             </div>
         </section>

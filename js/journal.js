@@ -172,6 +172,7 @@ function setupSearch() {
         const query = e.target.value;
         searchEngine.search(query);
         renderPosts(searchEngine.sortByDate());
+        updateStatsForFiltered();
     });
     
     // 按钮搜索
@@ -180,6 +181,7 @@ function setupSearch() {
             const query = searchInput.value;
             searchEngine.search(query);
             renderPosts(searchEngine.sortByDate());
+            updateStatsForFiltered();
         });
     }
     
@@ -189,8 +191,14 @@ function setupSearch() {
             const query = searchInput.value;
             searchEngine.search(query);
             renderPosts(searchEngine.sortByDate());
+            updateStatsForFiltered();
         }
     });
+}
+
+// 重置统计（显示全部）
+function resetStats() {
+    initStats();
 }
 
 // 设置标签筛选
@@ -209,9 +217,29 @@ function setupFilters() {
             searchEngine.filterByTag(filter);
             renderPosts(searchEngine.sortByDate());
             
+            // 更新统计面板（显示筛选后的数量）
+            if (filter === 'all') {
+                resetStats();
+            } else {
+                updateStatsForFiltered();
+            }
+            
             console.log('筛选标签:', filter, '结果数量:', searchEngine.filteredPosts.length);
         });
     });
+}
+
+// 更新统计面板（筛选后）
+function updateStatsForFiltered() {
+    const filteredCount = searchEngine.filteredPosts.length;
+    animateNumber('total-posts', filteredCount);
+    
+    // 更新标签数量（筛选后的标签）
+    const filteredTags = new Set();
+    searchEngine.filteredPosts.forEach(post => {
+        post.tags.forEach(tag => filteredTags.add(tag));
+    });
+    animateNumber('total-tags', filteredTags.size);
 }
 
 // 获取 URL 参数

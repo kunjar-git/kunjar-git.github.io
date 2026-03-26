@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupFilters();
 });
 
-// 从 posts 目录加载所有 Markdown 文件
+// 从 posts 目录加载所有日记
 async function loadAllPosts() {
     try {
         // 读取 posts 目录的索引文件
@@ -208,6 +208,8 @@ function setupFilters() {
             const filter = btn.dataset.filter;
             searchEngine.filterByTag(filter);
             renderPosts(searchEngine.sortByDate());
+            
+            console.log('筛选标签:', filter, '结果数量:', searchEngine.filteredPosts.length);
         });
     });
 }

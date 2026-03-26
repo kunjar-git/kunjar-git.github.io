@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人日记 - 我的空间</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/journal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">🏠 我的空间</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="index.html" class="active">日记</a></li>
+                <li><a href="../about.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="journal-header">
+            <h1 class="page-title">📔 个人日记</h1>
+            <p class="page-subtitle">记录生活的点点滴滴，留下思考的足迹</p>
+        </section>
+
+        <section class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="搜索日记标题、内容或标签..."
+                >
+                <button id="search-btn" class="search-btn">🔍 搜索</button>
+            </div>
+            <div class="search-filters">
+                <span class="filter-label">快速筛选:</span>
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="life">生活</button>
+                <button class="filter-btn" data-filter="thoughts">思考</button>
+                <button class="filter-btn" data-filter="tech">技术</button>
+                <button class="filter-btn" data-filter="travel">旅行</button>
+            </div>
+        </section>
+
+        <section class="journal-stats">
+            <div class="stat-card">
+                <span class="stat-number" id="total-posts">0</span>
+                <span class="stat-label">篇日记</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="total-tags">0</span>
+                <span class="stat-label">个标签</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="first-post-days">0</span>
+                <span class="stat-label">天记录</span>
+            </div>
+        </section>
+
+        <section class="posts-section">
+            <div id="posts-container" class="posts-grid">
+                <!-- 日记内容通过 JS 动态加载 -->
+            </div>
+            <div id="no-results" class="no-results" style="display: none;">
+                <p>😕 没有找到匹配的日记</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 我的个人空间。Built with ❤️ on GitHub Pages</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/journal-data.js"></script>
+    <script src="../js/journal-search.js"></script>
+    <script src="../js/journal.js"></script>
+</body>
+</html>

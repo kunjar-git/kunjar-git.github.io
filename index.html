@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人空间</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html">🏠 我的空间</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="journal/index.html">日记</a></li>
+                <li><a href="about.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">你好，我是<span class="highlight">创作者</span></h1>
+                <p class="hero-subtitle">在这里记录生活、分享思考、探索世界</p>
+                <div class="hero-actions">
+                    <a href="journal/index.html" class="btn btn-primary">浏览日记</a>
+                    <a href="about.html" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2 class="section-title">精选内容</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <h3>个人日记</h3>
+                    <p>记录生活中的点滴思考与感悟</p>
+                    <a href="journal/index.html" class="card-link">查看更多 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>技术分享</h3>
+                    <p>探索编程世界，分享学习心得</p>
+                    <a href="#" class="card-link">敬请期待 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>创意项目</h3>
+                    <p>展示个人作品与创意实验</p>
+                    <a href="#" class="card-link">敬请期待 →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <h2 class="section-title">最近更新</h2>
+            <div id="latest-posts" class="posts-list">
+                <!-- 通过 JS 动态加载 -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 我的个人空间。Built with ❤️ on GitHub Pages</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

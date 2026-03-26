@@ -21,8 +21,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadAllPosts() {
     try {
         // 读取 posts 目录的索引文件
+        console.log('开始加载日记...');
         const response = await fetch('../posts/posts-index.json');
-        const postsIndex = await response.json();
+        console.log('响应状态:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const jsonData = await response.json();
+        console.log('JSON 数据结构:', jsonData);
+        
+        // jsonData 是 { posts: [...] } 格式，需要取 posts 数组
+        const postsIndex = jsonData.posts || [];
+        console.log('加载成功，日记数量:', postsIndex.length);
         
         allPosts = postsIndex.map(post => ({
             id: post.id,
@@ -32,8 +44,11 @@ async function loadAllPosts() {
             excerpt: post.excerpt,
             content: post.content
         }));
+        
+        console.log('allPosts:', allPosts);
     } catch (error) {
         console.error('加载日记失败:', error);
+        console.error('错误详情:', error.message);
         allPosts = []; // 加载失败时使用空数组
     }
 }

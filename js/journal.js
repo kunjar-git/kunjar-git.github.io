@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadAllPosts() {
     try {
         // 读取 posts 目录的索引文件
-        const response = await fetch('../posts/posts-index.json');
+        const response = await fetch('./posts-index.json');
         const postsIndex = await response.json();
         
         allPosts = postsIndex.map(post => ({

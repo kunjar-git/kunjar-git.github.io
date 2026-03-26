@@ -80,8 +80,8 @@ function initStats() {
     
     animateNumber('total-posts', stats.totalPosts);
     animateNumber('total-tags', stats.totalTags);
-    // 记录天数固定为 1（从开始写日记的第一天算起）
-    animateNumber('first-post-days', 1);
+    // 记录天数：从今天（2026-03-26）开始计算
+    animateNumber('first-post-days', stats.daysFromStart);
 }
 
 // 数字动画

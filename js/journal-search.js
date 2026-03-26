@@ -59,16 +59,12 @@ class JournalSearch {
         const totalPosts = this.posts.length;
         const totalTags = this.getAllTags().length;
         
-        // 计算第一篇和最后一篇之间的天数
-        if (this.posts.length > 0) {
-            const dates = this.posts.map(p => new Date(p.date));
-            const firstDate = new Date(Math.min(...dates));
-            const lastDate = new Date(Math.max(...dates));
-            const daysDiff = Math.ceil((lastDate - firstDate) / (1000 * 60 * 60 * 24)) + 1;
-            return { totalPosts, totalTags, daysDiff };
-        }
+        // 从今天（2026-03-26）开始计算天数
+        const startDate = new Date('2026-03-26');
+        const today = new Date();
+        const daysFromStart = Math.ceil((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
         
-        return { totalPosts, totalTags, daysDiff: 0 };
+        return { totalPosts, totalTags, daysFromStart };
     }
 
     // 按日期排序（最新的在前）

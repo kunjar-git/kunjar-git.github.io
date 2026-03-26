@@ -30,7 +30,7 @@
         
         .year-header {
             position: sticky;
-            top: 80px;
+            top: 160px; /* 在年份导航下方 */
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 1rem 2rem;
@@ -39,7 +39,7 @@
             font-size: 1.75rem;
             font-weight: 700;
             box-shadow: var(--shadow-lg);
-            z-index: 10;
+            z-index: 40;
         }
         
         .year-header::before {
@@ -139,28 +139,31 @@
         /* 年份导航 */
         .year-nav {
             position: sticky;
-            top: 20px;
-            background: var(--card-bg);
-            padding: 1rem 2rem;
+            top: 90px; /* 在顶部导航栏下方 */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             margin-bottom: 2rem;
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
-            z-index: 100;
+            z-index: 50;
+            border: 1px solid var(--border-color);
         }
         
         .year-nav-btn {
-            padding: 0.5rem 1.25rem;
+            padding: 0.4rem 1rem;
             border: 2px solid var(--border-color);
             background: var(--card-bg);
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
             color: var(--text-secondary);
+            white-space: nowrap;
         }
         
         .year-nav-btn:hover {

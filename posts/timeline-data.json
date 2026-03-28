@@ -1,6 +1,15 @@
 {
   "timeline": [
     {
+      "id": "2026-03-28-walden-reflection",
+      "date": "2026-03-28T21:34:00",
+      "dateDisplay": "2026 年 03 月 28 日 21:34",
+      "title": "读《瓦尔登湖》有感",
+      "description": "梭罗去瓦尔登湖是一场生存实验，是对自我的重置。给生活做减法，向内扎根，接纳平淡的日常。",
+      "tags": ["thoughts"],
+      "link": "posts/2026-03-28-walden-reflection.html"
+    },
+    {
       "id": "2026-03-26-not-a-medicine-god",
       "date": "2026-03-26T11:40:00",
       "dateDisplay": "2026 年 03 月 26 日 11:40",

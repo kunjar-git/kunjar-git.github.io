@@ -1,6 +1,15 @@
 {
   "timeline": [
     {
+      "id": "2026-04-02-mao-pian-ending",
+      "date": "2026-04-02T09:02:00",
+      "dateDisplay": "2026 年 04 月 02 日 09:02",
+      "title": "《毛骗》终章有感",
+      "description": "看完《毛骗》的结局，心中涌起莫名的忧伤。离别是常态，但真的好难过。愿我们都能在各自的路上找到方向。",
+      "tags": ["thoughts"],
+      "link": "posts/2026-04-02-mao-pian-ending.html"
+    },
+    {
       "id": "2026-03-28-walden-reflection",
       "date": "2026-03-28T21:34:00",
       "dateDisplay": "2026 年 03 月 28 日 21:34",
